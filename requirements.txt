@@ -1,0 +1,10 @@
+Django==3.2.4
+django-cors-headers==3.10.0
+djangorestframework==3.12.4
+gunicorn==20.1.0
+firebase-admin==5.0.3
+pyrebase4==4.5.0
+django-cors-headers==3.10.0
+pyparsing==2.4.2
+Pillow==8.4.0
+better_profanity==0.7.0

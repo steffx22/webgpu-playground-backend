@@ -1,0 +1,33 @@
+stages:
+  - test
+  - deploy
+
+Test:
+  image: python:3.8.8
+  stage: test
+  before_script:
+    - pip install -r requirements.txt
+#    - python manage.py migrate
+#    - python manage.py collectstatic --no-input
+#  when: on_success
+  script:
+    - echo 'No tests yet :)'
+#    - coverage run --include="./*/*" --omit="./manage.py" manage.py test
+#    - coverage report -m
+#    - coverage xml -i
+#  artifacts:
+#    paths:
+#      - coverage.xml
+
+Deployment:
+  image: tmaier/dpl:latest
+  stage: deploy
+  before_script:
+    - gem install faraday -v 1.8.0
+  script:
+    - dpl --provider=heroku --app=$heroku_app --api-key=$heroku_api_key
+#  environment:
+#    name: main
+#    url: $heroku_app'.herokuapp.com'
+  only:
+    - master
